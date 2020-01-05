@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 class SliderPage extends StatefulWidget {
@@ -47,11 +49,20 @@ class _SliderPageState extends State<SliderPage> {
   }
 
   Widget _crearImagen(){
-    return Image(
-      image: NetworkImage('https://besthqwallpapers.com/Uploads/3-11-2017/26896/thumb2-spiderman-logo-4k-red-background-superhero-spiderman.jpg'),
-      width: _valorSlider,
-      fit: BoxFit.fitHeight,
-    );
+    
+    try {
+      return Image(
+          image: NetworkImage('https://besthqwallpapers.com/Uploads/3-11-2017/26896/thumb2-spiderman-logo-4k-red-background-superhero-spiderman.jpg'),
+          width: _valorSlider,
+          fit: BoxFit.fitHeight,   
+      );
+    }catch (e) {
+      return Image(
+          image: AssetImage('assets/503.png'),
+          width: _valorSlider,
+          fit: BoxFit.none,
+      );
+    }
   }
 
   Widget _crearCheckbox(){

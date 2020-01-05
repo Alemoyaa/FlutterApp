@@ -21,11 +21,13 @@ class _ListaPageState extends State<ListaPage> {
     super.initState();
     _agregar10();
 
-    _scrollController.addListener((){
-      if(_scrollController.position.pixels == _scrollController.position.maxScrollExtent){
+    _scrollController.addListener(() {
+      if (_scrollController.position.pixels ==
+          _scrollController.position.maxScrollExtent) {
         fetchData();
         //agregar10();
       }
+
     });
   }
 
@@ -38,17 +40,17 @@ class _ListaPageState extends State<ListaPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Listas'),
-      ),
-      body: Stack(
-        children: <Widget>[
-          _crearLista(),
-          _crearLoading()
-        ],
-      )
-    );
+      return Scaffold(
+          appBar: AppBar(
+            title: Text('Listas'),
+          ),
+          body: Stack(
+            children: <Widget>[
+              _crearLista(),
+              _crearLoading()
+            ],
+          )
+      );
   }
 
   Widget _crearLista(){
@@ -60,10 +62,18 @@ class _ListaPageState extends State<ListaPage> {
         itemCount: _listaNumeros.length,
         itemBuilder: (BuildContext context, int index){
           final imagen = _listaNumeros[index];
-          return FadeInImage(
-            image: NetworkImage('https://i.picsum.photos/id/10$imagen/600/600.jpg'),
-            placeholder: AssetImage('assets/jar-loading.gif'),
-          );
+          try {
+            return FadeInImage(
+              image:  NetworkImage('https://i.picsum.photos/id/10$imagen/600/600.jpg'),
+              placeholder: AssetImage('assets/jar-loading.gif'),
+            );
+          } catch (e) {
+            return Image(
+              image: AssetImage('assets/503.png'),
+              fit: BoxFit.none,
+            );
+
+          }
         },
       )
     );
