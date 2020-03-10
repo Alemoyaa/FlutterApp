@@ -12,9 +12,9 @@ class _InputPageState extends State<InputPage> {
 
   String _fecha = '';
 
-  List _poderes = ['Volar' , 'Rayos X' , 'Super Aliento', 'Super Fuerza'];
+  List _estadoCivil = ['Soltero/a' , 'Casado/a'];
 
-  String _opcionSeleccionada = 'Volar';
+  String _opcionSeleccionada = 'Soltero/a';
 
   TextEditingController _inputFieldDateController = new TextEditingController();
 
@@ -70,7 +70,7 @@ class _InputPageState extends State<InputPage> {
     return ListTile(
       title: Text('Nombre: $_nombre'),
       subtitle: Text('Email: $_email'),
-      trailing: Text('Poder :  $_opcionSeleccionada'),
+      trailing: Text('Estado civil :  $_opcionSeleccionada'),
     );
   }
 
@@ -151,10 +151,10 @@ class _InputPageState extends State<InputPage> {
 
   List<DropdownMenuItem<String>> getOpcionesDropdown() {
     List<DropdownMenuItem<String>> lista = new List();
-    _poderes.forEach( (poder) {
+    _estadoCivil.forEach( (estadoCivil) {
       lista.add(DropdownMenuItem(
-        child: Text(poder),
-        value: poder,
+        child: Text(estadoCivil),
+        value: estadoCivil,
       ));
     });
 

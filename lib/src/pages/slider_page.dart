@@ -52,9 +52,9 @@ class _SliderPageState extends State<SliderPage> {
     
     try {
       return Image(
-          image: NetworkImage('https://besthqwallpapers.com/Uploads/3-11-2017/26896/thumb2-spiderman-logo-4k-red-background-superhero-spiderman.jpg'),
+          image: AssetImage('assets/cardsImage.jpg'),
           width: _valorSlider,
-          fit: BoxFit.fitHeight,   
+          fit: BoxFit.fitHeight,
       );
     }catch (e) {
       return Image(

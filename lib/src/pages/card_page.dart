@@ -39,7 +39,7 @@ class CardPage extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.photo_album, color: Colors.blue),
             title: Text('Soy el titulo de la tarjeta'),
-            subtitle: Text('Soy el subtitulo de la tarjeta Soy el subtitulo de la tarjeta '),
+            subtitle: Text('Soy el subtitulo de la tarjeta Lorem ipsum dolor sit amet, consectetur adipiscing elit. '),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
@@ -65,7 +65,7 @@ class CardPage extends StatelessWidget {
       child: Column(
         children: <Widget>[
           FadeInImage(
-            image: NetworkImage('https://miro.medium.com/max/2160/0*QNdQhs_T3ffa6B0m.jpeg'),
+            image: AssetImage('assets/cardsImage.jpg'),
             placeholder: AssetImage('assets/jar-loading.gif'),
             fadeInDuration: Duration( milliseconds: 200 ),
             height: 250.0,
@@ -76,7 +76,7 @@ class CardPage extends StatelessWidget {
 //          ),
           Container(
             padding: EdgeInsets.all(20.0),
-            child: Text('No se que poner')
+            child: Text('Detalle de pie de pagina')
           )
         ],
       ),
